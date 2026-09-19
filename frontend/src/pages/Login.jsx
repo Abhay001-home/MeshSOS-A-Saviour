@@ -34,8 +34,8 @@ export default function Login() {
         <div className={styles.brand}>
           <div className={styles.brandMark}>⬡</div>
           <div>
-            <div className={styles.brandName}>HYPERRESCUE</div>
-            <div className={styles.brandTagline}>Hyperlocal Disaster Response Coordinator</div>
+            <div className={styles.brandName}>MeshSOS</div>
+            <div className={styles.brandTagline}>MeshSOS Response Coordinator</div>
           </div>
         </div>
 
