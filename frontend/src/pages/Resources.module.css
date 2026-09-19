@@ -1,0 +1,60 @@
+.page { display: flex; flex-direction: column; gap: var(--space-lg); animation: slide-up 0.3s ease; }
+
+.summaryBar { display: flex; align-items: center; gap: var(--space-md); flex-wrap: wrap; }
+
+.sumCard {
+  display: flex; flex-direction: column; gap: 2px;
+  padding: var(--space-sm) var(--space-lg);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--r-lg);
+  background: var(--bg-surface);
+  min-width: 100px;
+}
+.sumVal   { font-family: var(--font-display); font-size: 24px; font-weight: 800; line-height: 1; }
+.sumLabel { font-family: var(--font-mono); font-size: 9px; color: var(--text-muted); letter-spacing: 0.12em; }
+.sum_cyan  .sumVal  { color: var(--accent-cyan); }
+.sum_green .sumVal  { color: var(--accent-green); }
+.sum_alert .sumVal  { color: var(--accent-alert); }
+
+.filters { display: flex; flex-direction: column; gap: var(--space-sm); }
+
+.filterRow { display: flex; align-items: center; gap: var(--space-xs); flex-wrap: wrap; }
+
+.filterLabel { font-family: var(--font-mono); font-size: 10px; color: var(--text-muted); letter-spacing: 0.1em; margin-right: 4px; }
+
+.fBtn {
+  padding: 4px 10px;
+  font-family: var(--font-mono); font-size: 9px; font-weight: 600; letter-spacing: 0.06em;
+  border: 1px solid var(--border-subtle); background: var(--bg-surface); color: var(--text-muted);
+  border-radius: var(--r-sm); cursor: pointer; transition: all var(--transition-fast);
+}
+.fBtn:hover { color: var(--text-primary); border-color: var(--border-dim); }
+.fBtnActive { background: rgba(0,212,255,0.08); border-color: var(--accent-cyan); color: var(--accent-cyan); }
+
+.tableCard { padding: 0; overflow: hidden; }
+
+.typeTag { font-family: var(--font-mono); font-size: 10px; color: var(--accent-cyan); background: rgba(0,212,255,0.08); border: 1px solid rgba(0,212,255,0.15); border-radius: var(--r-sm); padding: 2px 7px; white-space: nowrap; }
+
+.resName { font-weight: 500; color: var(--text-primary); margin-bottom: 2px; }
+.resSub  { font-size: 11px; color: var(--text-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 200px; }
+
+.qty { font-family: var(--font-display); font-size: 16px; font-weight: 700; color: var(--text-primary); }
+.qtyZero { color: var(--status-critical) !important; }
+.unit { font-family: var(--font-mono); font-size: 10px; color: var(--text-muted); font-weight: 400; }
+
+.loc { font-size: 12px; color: var(--text-secondary); }
+
+.editBtn { padding: 4px 10px; font-size: 11px; border: 1px solid var(--border-dim); background: var(--bg-elevated); color: var(--text-secondary); border-radius: var(--r-sm); cursor: pointer; transition: all var(--transition-fast); }
+.editBtn:hover { border-color: var(--accent-cyan); color: var(--accent-cyan); }
+
+.form { display: flex; flex-direction: column; gap: var(--space-lg); }
+.formRow { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: var(--space-md); }
+.field { display: flex; flex-direction: column; gap: var(--space-xs); }
+.label { font-family: var(--font-mono); font-size: 10px; color: var(--text-muted); letter-spacing: 0.12em; }
+.input { height: 40px; background: var(--bg-elevated); border: 1px solid var(--border-subtle); border-radius: var(--r-md); padding: 0 var(--space-md); font-family: var(--font-body); font-size: 13px; color: var(--text-primary); outline: none; transition: border-color var(--transition-fast); width: 100%; }
+.input:focus { border-color: var(--accent-cyan); box-shadow: 0 0 0 2px rgba(0,212,255,0.08); }
+.input::placeholder { color: var(--text-muted); }
+.select { appearance: none; cursor: pointer; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%238ba3c0' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; padding-right: 32px; }
+.select option { background: #1a2330; color: #e8f0fe; }
+.textarea { height: auto; padding: var(--space-sm) var(--space-md); resize: vertical; min-height: 70px; line-height: 1.6; }
+.formActions { display: flex; justify-content: flex-end; gap: var(--space-sm); padding-top: var(--space-sm); border-top: 1px solid var(--border-subtle); }

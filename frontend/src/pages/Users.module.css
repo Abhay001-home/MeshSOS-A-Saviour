@@ -1,0 +1,22 @@
+.page { display: flex; flex-direction: column; gap: var(--space-lg); animation: slide-up 0.3s ease; }
+.header { display: flex; align-items: center; justify-content: space-between; }
+.total  { font-family: var(--font-display); font-size: 18px; font-weight: 700; color: var(--text-primary); }
+.active { font-family: var(--font-mono); font-size: 11px; color: var(--accent-green); margin-top: 2px; }
+.tableCard { padding: 0; overflow: hidden; }
+.name   { font-weight: 500; color: var(--text-primary); margin-bottom: 2px; }
+.email  { font-family: var(--font-mono); font-size: 11px; color: var(--text-muted); }
+.roleTag { font-family: var(--font-mono); font-size: 10px; color: var(--accent-purple); background: rgba(124,77,255,0.1); border: 1px solid rgba(124,77,255,0.2); border-radius: var(--r-sm); padding: 2px 8px; letter-spacing: 0.06em; }
+.mono { font-family: var(--font-mono); font-size: 11px; color: var(--text-secondary); }
+.actions { display: flex; gap: 4px; }
+.editBtn { padding: 4px 10px; font-size: 11px; border: 1px solid var(--border-dim); background: var(--bg-elevated); color: var(--text-secondary); border-radius: var(--r-sm); cursor: pointer; transition: all var(--transition-fast); white-space: nowrap; }
+.editBtn:hover { border-color: var(--accent-cyan); color: var(--accent-cyan); }
+.dangerBtn:hover { border-color: var(--status-critical) !important; color: var(--status-critical) !important; }
+.form { display: flex; flex-direction: column; gap: var(--space-lg); }
+.field { display: flex; flex-direction: column; gap: var(--space-xs); }
+.label { font-family: var(--font-mono); font-size: 10px; color: var(--text-muted); letter-spacing: 0.12em; }
+.input { height: 40px; background: var(--bg-elevated); border: 1px solid var(--border-subtle); border-radius: var(--r-md); padding: 0 var(--space-md); font-family: var(--font-body); font-size: 13px; color: var(--text-primary); outline: none; transition: border-color var(--transition-fast); width: 100%; }
+.input:focus { border-color: var(--accent-cyan); box-shadow: 0 0 0 2px rgba(0,212,255,0.08); }
+.input::placeholder { color: var(--text-muted); }
+.select { appearance: none; cursor: pointer; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%238ba3c0' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; padding-right: 32px; }
+.select option { background: #1a2330; color: #e8f0fe; }
+.formActions { display: flex; justify-content: flex-end; gap: var(--space-sm); padding-top: var(--space-sm); border-top: 1px solid var(--border-subtle); }
