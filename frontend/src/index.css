@@ -39,9 +39,9 @@
   --status-resolved: #546e7a;
 
   /* Fonts */
-  --font-display:   'Syne', sans-serif;
-  --font-body:      'Outfit', sans-serif;
-  --font-mono:      'JetBrains Mono', monospace;
+  --font-heading: 'Times New Roman', serif;
+  --font-body: 'Times New Roman', serif;
+  --font-mono: 'Courier New', monospace;
 
   /* Spacing */
   --space-xs: 4px;
