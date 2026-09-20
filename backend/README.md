@@ -1,4 +1,4 @@
-# ⬡ HyperRescue Backend — MongoDB Edition
+# ⬡ MeshSOS Backend — MongoDB Edition
 
 > Node.js + Express + MongoDB (Mongoose) + Socket.IO
 
