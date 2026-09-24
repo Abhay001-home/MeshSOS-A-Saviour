@@ -40,7 +40,7 @@ export default function Register() {
         <div className={styles.brand}>
           <div className={styles.brandMark}>⬡</div>
           <div>
-            <div className={styles.brandName}>HYPERRESCUE</div>
+            <div className={styles.brandName}>MeshSOS</div>
             <div className={styles.brandTagline}>Operator Registration</div>
           </div>
         </div>
