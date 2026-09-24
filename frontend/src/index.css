@@ -1,11 +1,11 @@
-/* ===== HyperRescue Design System ===== */
+/* ===== MeshSOS Design System ===== */
 /* Aesthetic: Industrial Command Center — dark, urgent, precise */
 
 @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500&family=Outfit:wght@300;400;500;600&display=swap');
 
 :root {
   /* Core palette — dark ops */
-  --bg-void:        #080b0f;
+  --bg-void:        #325b47;
   --bg-base:        #0d1117;
   --bg-surface:     #131920;
   --bg-elevated:    #1a2330;
