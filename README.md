@@ -1,79 +1,183 @@
 # MeshSOS-A-Saviour
 
-MeshSOS is a disaster-response command dashboard built to help teams monitor incidents, coordinate rescue operations, and manage resources in real time.
+MeshSOS is a full-stack disaster-response command dashboard for emergency coordination, resource management, survivor tracking, and live operational awareness.
 
-This repository currently contains the frontend application for a live emergency management system. The app includes protected routes, a dashboard, incident tracking, survivor management, team coordination, resource allocation, and a map-based operational view.
+This repository includes both the backend API and the React frontend that work together to support incident operations, team coordination, and real-time updates across the response workflow.
 
 ## Overview
 
-The interface is designed for emergency coordination centers and field operations teams. It supports:
+The platform is built for emergency response teams and coordination centers. It supports:
 
-- incident monitoring and status tracking
-- survivor intake and status updates
-- team deployment visibility
-- resource allocation and utilization tracking
-- dashboard metrics and live activity feeds
-- map-based operational awareness
-- authentication and role-aware access
+- incident creation, tracking, and status updates
+- survivor intake and case management
+- team deployment and location monitoring
+- resource allocation and availability tracking
+- dashboard metrics and activity streams
+- map-based situational awareness
+- role-based authentication and protected access
+- real-time updates over Socket.IO
 
-## Tech stack
-
-- React 19
-- Vite
-- React Router
-- Zustand state management
-- Axios for API calls
-- Mapbox GL for map rendering
-- Socket.IO client for live updates
-- date-fns and lucide-react for UI enhancements
-
-## Project structure
+## Architecture
 
 ```text
 MeshSOS-A-Saviour/
 ├── README.md
-├── frontend/
+├── backend/
 │   ├── package.json
-│   ├── vite.config.js
-│   ├── index.html
-│   ├── public/
+│   ├── .env
+│   ├── .env.example
+│   ├── README.md
 │   └── src/
-│       ├── App.jsx
-│       ├── components/
-│       ├── hooks/
-│       ├── lib/
-│       ├── pages/
-│       └── store/
-└── ...
+│       ├── config/
+│       ├── middleware/
+│       ├── models/
+│       ├── routes/
+│       ├── utils/
+│       ├── migrate.js
+│       ├── seed.js
+│       └── server.js
+└── frontend/
+    ├── package.json
+    ├── .env.example
+    ├── README.md
+    ├── index.html
+    ├── vite.config.js
+    ├── public/
+    └── src/
+        ├── App.jsx
+        ├── components/
+        ├── hooks/
+        ├── lib/
+        ├── pages/
+        ├── store/
+        ├── App.css
+        ├── index.css
+        └── main.jsx
 ```
 
-## Main application routes
+## Tech stack
 
-The app defines authenticated and public routes, including:
+### Frontend
 
-- /login
-- /register
-- /dashboard
-- /map
-- /incidents
-- /survivors
-- /teams
-- /resources
-- /users
-- /settings
+- React 19
+- Vite
+- React Router
+- Zustand
+- Axios
+- Mapbox GL
+- Socket.IO client
+- date-fns
+- lucide-react
+
+### Backend
+
+- Node.js
+- Express 5
+- MongoDB with Mongoose
+- Socket.IO
+- JWT authentication
+- bcryptjs
+- Helmet and CORS middleware
+
+## Application flow
+
+- The frontend provides the emergency operations interface.
+- The backend exposes REST APIs for authentication, incidents, survivors, teams, resources, and dashboard stats.
+- Real-time updates are broadcast via Socket.IO so the dashboard stays synchronized.
+- MongoDB stores operational data for users, incidents, teams, survivors, and resources.
+
+## Main routes
+
+### Frontend
+
+- `/login`
+- `/register`
+- `/dashboard`
+- `/map`
+- `/incidents`
+- `/survivors`
+- `/teams`
+- `/resources`
+- `/users`
+- `/settings`
+
+### Backend API
+
+- `/api/auth/register`
+- `/api/auth/login`
+- `/api/auth/me`
+- `/api/incidents`
+- `/api/survivors`
+- `/api/teams`
+- `/api/resources`
+- `/api/dashboard/stats`
+- `/api/users`
 
 ## Prerequisites
 
-Before running the app, make sure you have:
+Before running the project locally, make sure you have:
 
-- Node.js 18 or later
+- Node.js 18+
 - npm
-- a running backend API that exposes the endpoints used by the frontend
-- a Mapbox access token for the live map
+- MongoDB running locally on port 27017
+- a Mapbox token for the live map view
 
-## Environment variables
+## Quick start
 
-Create a .env file inside the frontend folder:
+### 1) Start the backend
+
+```bash
+cd backend
+npm install
+npm run seed
+npm run dev
+```
+
+The backend runs on:
+
+```text
+http://localhost:5000
+```
+
+Health check:
+
+```text
+http://localhost:5000/health
+```
+
+### 2) Start the frontend
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+The frontend runs on:
+
+```text
+http://localhost:5173
+```
+
+## Environment setup
+
+### Backend
+
+The backend uses a `.env` file in `backend/`.
+
+Example:
+
+```env
+MONGO_URI=mongodb://127.0.0.1:27017/hyperrescue
+JWT_SECRET=your_jwt_secret
+CORS_ORIGIN=http://localhost:5173
+```
+
+### Frontend
+
+The frontend uses a `.env` file in `frontend/`.
+
+Example:
 
 ```env
 VITE_API_URL=http://localhost:5000
@@ -82,32 +186,35 @@ VITE_MAPBOX_TOKEN=your_mapbox_token_here
 
 Notes:
 
-- VITE_API_URL is the base URL for the backend service.
-- The frontend defaults to http://localhost:5000 if this is not set.
-- If VITE_MAPBOX_TOKEN is missing or set to a placeholder, the map view falls back to a preview state instead of rendering the live Mapbox map.
+- `VITE_API_URL` is the backend base URL used by the frontend.
+- If the token is missing or left as a placeholder, the map view falls back to a preview state instead of rendering live Mapbox content.
 
-## Getting started
+## Demo credentials
 
-```bash
-cd frontend
-npm install
-npm run dev
-```
+After seeding the backend, these sample accounts are available:
 
-The dev server will start with Vite and expose the frontend locally in the browser.
+| Email | Password | Role |
+| --- | --- | --- |
+| admin@hyperrescue.local | admin123 | Admin |
+| coord@hyperrescue.local | coord123 | Coordinator |
+| meera@hyperrescue.local | coord123 | Medic |
+| ravi@hyperrescue.local | coord123 | Responder |
 
 ## Production build
+
+### Frontend
 
 ```bash
 cd frontend
 npm run build
+npm run preview
 ```
 
-To preview the production build locally:
+### Backend
 
 ```bash
-cd frontend
-npm run preview
+cd backend
+npm start
 ```
 
 ## Linting
@@ -119,4 +226,4 @@ npm run lint
 
 ## Notes
 
-This project is structured as a frontend dashboard that expects a connected backend service for authentication, incidents, survivors, teams, resources, and dashboard metrics. The UI is ready for real-time operations workflows and is intended to be paired with a matching API service.
+This project is designed as a full-stack emergency response platform. The frontend and backend are meant to run together, with the frontend handling user workflows and the backend providing persistence, authentication, and real-time operations support.
