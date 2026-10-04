@@ -139,7 +139,7 @@ function MapboxSettings() {
 
 function AboutPanel() {
   return (
-    <Section title="About HyperRescue" sub="System information">
+    <Section title="About MeshSOS" sub="System information">
       <div className={styles.aboutGrid}>
         <InfoRow label="Version" value="1.0.0-alpha" />
         <InfoRow label="Frontend" value="React 19 + Vite 6" />

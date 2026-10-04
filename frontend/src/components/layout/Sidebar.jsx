@@ -36,8 +36,8 @@ export default function Sidebar() {
           <span className={styles.logoHex}>⬡</span>
         </div>
         <div className={styles.logoText}>
-          <span className={styles.logoMain}>HYPER</span>
-          <span className={styles.logoSub}>RESCUE</span>
+          <span className={styles.logoMain}>MeshSOS</span>
+          <span className={styles.logoSub}>Coordinator</span>
         </div>
         {criticalCount > 0 && (
           <span className={styles.alertBadge}>{criticalCount}</span>
